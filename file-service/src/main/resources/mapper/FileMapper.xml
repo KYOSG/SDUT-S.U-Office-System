@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sdut.mapper.FileMapper">
+
+    <resultMap id="BaseResultMap" type="com.sdut.entity.File">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="fileName" column="file_name" jdbcType="VARCHAR"/>
+        <result property="filePath" column="file_path" jdbcType="VARCHAR"/>
+        <result property="fileSize" column="file_size" jdbcType="DECIMAL"/>
+    </resultMap>
+    <insert id="insertBatch">
+        insert into file (file_name, file_origin_name, file_path, file_size)
+        VALUES
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+            #{item.fileName},
+            #{item.fileOriginName},
+            #{item.filePath},
+            #{item.fileSize}
+        </foreach>
+    </insert>
+
+
+</mapper>

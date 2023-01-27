@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+
+spring:
+  application:
+    name: file-server
+  datasource:
+    url: jdbc:mysql://localhost:3306/office?allowMultiQueries=true&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 12345678
+  servlet:
+    multipart:
+      #上传的文件最大大小
+      max-file-size: 50MB
+      #单次请求文件的总大小
+      max-request-size: 512MB
+  custom:
+    file-save-path: /Downloads
+
+# LogBack
+# 配置log输出的默认级别
+logging:
+  level:
+    root: debug
+
+eureka:
+  client:
+    # 指定Eureka服务端地址
+    service-url:
+      defaultZone: http://localhost:8088/eureka
+
+
+
+

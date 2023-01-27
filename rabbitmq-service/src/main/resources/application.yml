@@ -1,0 +1,23 @@
+server:
+  port: 8084
+
+
+spring:
+  application:
+    name: rabbitmq-service
+  #rabbitmq
+  rabbitmq:
+    host: localhost
+    port: 5672
+    virtual-host: /
+    username: root
+    password: 123456
+    listener:
+      simple:
+        prefetch: 1 #取消预取
+#Eureka
+eureka:
+  client:
+    # 指定Eureka服务端地址
+    service-url:
+      defaultZone: http://localhost:8088/eureka
